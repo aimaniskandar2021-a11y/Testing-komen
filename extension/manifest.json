@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Threads AI Reply",
+  "version": "0.1.0",
+  "description": "Draf balasan AI (Gemini) untuk post Threads, semak dulu, kemudian post yang dipilih.",
+  "permissions": ["storage", "sidePanel", "scripting"],
+  "host_permissions": [
+    "https://www.threads.com/*",
+    "https://www.threads.net/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "action": { "default_title": "Threads AI Reply" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.threads.com/*", "https://www.threads.net/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

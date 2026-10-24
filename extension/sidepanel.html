@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <title>Threads AI Reply</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <details id="settings">
+    <summary>⚙️ Tetapan</summary>
+    <label>Gemini API key
+      <input id="apiKey" type="password" placeholder="AIza..." autocomplete="off">
+    </label>
+    <div class="row">
+      <label class="grow">Model
+        <input id="model" list="models" placeholder="gemini-2.5-flash">
+        <datalist id="models"></datalist>
+      </label>
+      <button id="testKey" type="button">Test key</button>
+    </div>
+    <label>Tentang kau (persona, pilihan)
+      <textarea id="persona" rows="2" placeholder="Contoh: Lelaki 30-an, minat kereta & kopi, gaya cakap santai utara."></textarea>
+    </label>
+    <div class="row">
+      <label>Delay min (s)<input id="delayMin" type="number" min="5"></label>
+      <label>Delay max (s)<input id="delayMax" type="number" min="5"></label>
+      <label>Had sehari<input id="dailyCap" type="number" min="1"></label>
+    </div>
+    <button id="saveSettings" type="button">Simpan</button>
+    <p id="settingsMsg" class="muted"></p>
+  </details>
+
+  <div class="toolbar">
+    <button id="scan" class="btn blue" type="button">🔍 Scan page</button>
+    <span id="selectedCount" class="pill">Selected 0</span>
+    <span id="todayCount" class="pill">Hari ni 0/0</span>
+  </div>
+  <div class="toolbar">
+    <button class="btn yellow tone" data-tone="SHORT" type="button">✨ SHORT</button>
+    <button class="btn blue tone" data-tone="MORE" type="button">💬 MORE</button>
+    <button class="btn purple tone" data-tone="EXPERT" type="button">🧠 EXPERT</button>
+    <button id="postSelected" class="btn green" type="button">▶ POST SELECTED</button>
+    <button id="stop" class="btn red" type="button" hidden>■ STOP</button>
+  </div>
+  <div class="toolbar">
+    <button id="selectAll" class="btn" type="button">✓ Select All</button>
+    <button id="selectComments" class="btn" type="button">✓ All Comments</button>
+    <button id="clear" class="btn" type="button">Clear</button>
+  </div>
+  <p id="status" class="muted">Buka threads.com, scroll feed atau buka satu post, kemudian tekan Scan.</p>
+
+  <div id="list"></div>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>
